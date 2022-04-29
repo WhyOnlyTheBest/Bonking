@@ -19,6 +19,9 @@ public class MainManager : MonoBehaviour
     
     private bool m_GameOver = false;
 
+    private string Name;
+    
+
     
     // Start is called before the first frame update
     void Start()
@@ -37,6 +40,11 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
+    }
+
+    private void Awake()
+    {
+        LoadColor();
     }
 
     private void Update()
@@ -74,4 +82,6 @@ public class MainManager : MonoBehaviour
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
+
+
 }
