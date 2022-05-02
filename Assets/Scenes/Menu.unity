@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 112264296}
   - component: {fileID: 112264297}
+  - component: {fileID: 112264298}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -173,6 +174,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df0dbb988b5c2d479e3e339a3ea5e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &112264298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112264295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd328098e67de84dba1dabf93cdea0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BestScoreText: {fileID: 1758992542}
+  Name: 
+  Namey: {fileID: 1774254614}
+  NameObject: {fileID: 462136850}
+--- !u!1 &462136850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 462136852}
+  - component: {fileID: 462136851}
+  m_Layer: 0
+  m_Name: Name
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &462136851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462136850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7f6ba4e8554d349ab2f3c35f2a9675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notACleverName: 
+  score: 0
+  MainManager: {fileID: 0}
+--- !u!4 &462136852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462136850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 340.02768, y: 219.87042, z: 6.019108}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &499268880
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +962,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 112264298}
+        m_TargetAssemblyTypeName: SaveyThing, Assembly-CSharp
+        m_MethodName: SaveColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1498470520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,7 +1205,7 @@ GameObject:
   - component: {fileID: 1758992543}
   - component: {fileID: 1758992542}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Best score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

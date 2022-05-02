@@ -15,11 +15,9 @@ public class MainManager : MonoBehaviour
     public GameObject GameOverText;
     
     private bool m_Started = false;
-    private int m_Points;
+    public int m_Points;
     
     private bool m_GameOver = false;
-
-    private string Name;
     
 
     
@@ -44,7 +42,7 @@ public class MainManager : MonoBehaviour
 
     private void Awake()
     {
-        LoadColor();
+
     }
 
     private void Update()
@@ -82,6 +80,7 @@ public class MainManager : MonoBehaviour
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
+
 
 
 }

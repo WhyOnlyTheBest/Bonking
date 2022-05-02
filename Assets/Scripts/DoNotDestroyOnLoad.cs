@@ -4,21 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
-public class SaveyThing : MonoBehaviour
+public class DoNotDestroyOnLoad : MonoBehaviour
 {
-    public Text BestScoreText;
-    public string Name;
-    public Text Namey;
-
-    public GameObject NameObject;
+    public string notACleverName;
+    public int score;
+    public GameObject MainManager;
+    private int m_Score;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(transform.gameObject);
     }
 
-    void Awake()
+    private void Awake()
     {
         LoadColor();
     }
@@ -26,42 +25,37 @@ public class SaveyThing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        MainManager = GameObject.Find("MainManager");
+
+        m_Score = MainManager.GetComponent<MainManager>().m_Points;
     }
 
     [System.Serializable]
     class SaveData
     {
-        public string Name;
+        public int m_Score;
     }
 
     public void SaveColor()
     {
-        Name = Namey.text;
         SaveData data = new SaveData();
+        data.m_Score = m_Score;
 
-        data.Name = Name;
-
-        NameObject.GetComponent<DoNotDestroyOnLoad>().notACleverName = Name;
         string json = JsonUtility.ToJson(data);
 
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
-        Debug.Log(Name);
-
     }
-
     public void LoadColor()
     {
-        
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
         {
-            Debug.Log("Does Work");
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            Name = data.Name;
-            BestScoreText.text = "Best Score " + data.Name;
+            m_Score = data.m_Score;
         }
     }
+
+
 }
