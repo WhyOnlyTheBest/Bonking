@@ -6,6 +6,7 @@ using System.IO;
 
 public class SaveyThing : MonoBehaviour
 {
+    
     public Text BestScoreText;
     public string Name;
     public Text Namey;
@@ -15,7 +16,7 @@ public class SaveyThing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     void Awake()
@@ -26,7 +27,7 @@ public class SaveyThing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     [System.Serializable]
@@ -42,7 +43,6 @@ public class SaveyThing : MonoBehaviour
 
         data.Name = Name;
 
-        NameObject.GetComponent<DoNotDestroyOnLoad>().notACleverName = Name;
         string json = JsonUtility.ToJson(data);
 
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
@@ -52,7 +52,7 @@ public class SaveyThing : MonoBehaviour
 
     public void LoadColor()
     {
-        
+
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
         {
